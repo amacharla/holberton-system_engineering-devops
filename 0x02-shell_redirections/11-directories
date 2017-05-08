@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -RAl | grep -n ^d
+find . ! -path . -type d | wc -l
