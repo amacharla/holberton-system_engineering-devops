@@ -6,8 +6,7 @@ N="1"
 while [ "$N" -le "10" ]; do
 	if [ "$N" == "9" ]; then
 		echo "Hi"
-	else
-		echo "$PRINT"
 	fi
+	echo "$PRINT"
 	let "N++"
 done
