@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Prints @PRINT @N times and "HI" 9th iter using while loop
+
 PRINT="Holberton School"
 N="1"
 while [ "$N" -le "10" ]; do
