@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # FIZZ BUZZ problem 1-100
 
 for i in {1..100}; do

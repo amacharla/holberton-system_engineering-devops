@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Display contents of directory without prefix '#-'
 
 LISTCMD="$(ls)"

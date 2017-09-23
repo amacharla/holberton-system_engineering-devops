@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Gives information about Holberton File
 
 file="holbertonschool"
