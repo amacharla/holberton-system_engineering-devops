@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Prints @PRINT @N times using until loop
+PRINT="Holberton School"
+N=10
+until [ "$N" ==  "0" ]; do
+       	echo "$PRINT"
+	let "N--"
+done

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Prints @PRINT @N times else 
+#"bad luck" 4th iter using while loop
+#"good luck" 8th iter using while loop
+
+N="1"
+while [ "$N" -le "10" ]; do
+	if [ "$N" == "4" ]; then
+		echo "bad luck"
+	elif [ "$N" == "8" ]; then
+		echo "good luck"
+	else
+		echo "Holberton School"
+	fi
+	let "N++"
+done

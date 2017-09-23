@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Display contents of directory without prefix '#-'
+
+LISTCMD="$(ls)"
+for file in $LISTCMD; do
+	echo "$file" | cut -d '-' -f2
+done

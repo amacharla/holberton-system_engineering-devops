@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Display the time: 12 hours x 59mins
+
+HOUR="-1"
+while [ $((HOUR++)) -lt "12" ]; do
+	echo "Hour: $HOUR"
+
+	MINUTE="0"
+	while [ $((MINUTE++)) -lt "59" ]; do
+		echo $MINUTE
+	done
+done
