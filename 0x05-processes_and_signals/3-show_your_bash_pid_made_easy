@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Script displays lines containing the bash word.
+# `-l` option shows the process id 
+
+pgrep -l "bash"

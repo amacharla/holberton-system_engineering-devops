@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Script displays list of currently running processes `a` option
+# Must show all process including those without tty `x` option
+# User-oriented format `u` option
+# process hierarchy `f with u` option 
+
+ps -axuf

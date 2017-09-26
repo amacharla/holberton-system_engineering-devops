@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# displays "text" with sleep 2 and gets killed with kill
+# use `pgrep -f` to find the pid of the process then used kill
+
+kill "$(pgrep -f 4-to_infinity_and_beyond)"

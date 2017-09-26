@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# kill process without using `kill`
+# use `-f` to find the exact match pid of the process
+
+pkill -f "4-to_infinity_and_beyond"
