@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Displays /etc/passwd by username, group id and home dir
+# using `read-while loop` pay attention to redirection on line 7
+
+while read line; do
+	echo "$line" | cut -d ':' -f 1,3,6
+done < /etc/passwd
