@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Bash script that creates a RSA key pair
+# '-t' specify type of key 
+# '-b' Specifies the number of bits in the key to create
+# '-f' output name for .pub and private key file
+# '-n' set passphrase to password
+
+ssh-keygen -t rsa -b 4096 -f "holberton" -N password

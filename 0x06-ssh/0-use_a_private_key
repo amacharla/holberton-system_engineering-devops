@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# connecting to my remote server using my private key username and ip-address
+# 'i' option allows select file from private key is read for public key auth
+
+ssh -i ~/.ssh/holberton ubuntu@142.44.167.236

@@ -1,0 +1,5 @@
+host holberton
+	HostName 142.44.167.236
+	User ubuntu
+	PasswordAuthentication no
+	IdentityFile ~/.ssh/holberton
