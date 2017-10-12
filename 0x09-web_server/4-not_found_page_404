@@ -24,7 +24,6 @@ echo "http {
 		error_page 404 /custom_error.html;
 
 		location /custom_error.html{
-			root /var/www/holberton;
 			internal;
 		}
 	}
