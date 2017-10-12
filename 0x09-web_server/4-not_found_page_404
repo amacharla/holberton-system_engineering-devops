@@ -4,9 +4,9 @@
 # rewrite config file
 # reload nginx service
 
-sudo apt-get -y update
-sudo apt-get -y install nginx
-sudo service nginx start
+apt-get -y update
+apt-get -y install nginx
+service nginx start
 
 mkdir -p /var/www/holberton
 echo "Ceci n'est pas une page" > /var/www/holberton/custom_error.html
@@ -21,7 +21,6 @@ echo "http {
 		rewrite ^/redirect_me$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
 
 		error_page 404 /custom_error.html;
-
 		location /custom_error.html{
 			internal;
 		}

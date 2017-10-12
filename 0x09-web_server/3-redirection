@@ -4,9 +4,9 @@
 # rewrite config file
 # reload nginx
 
-sudo apt-get -y update
-sudo apt-get -y install nginx
-sudo service nginx start
+apt-get -y update
+apt-get -y install nginx
+service nginx start
 
 mkdir -p /var/www/holberton
 echo "Holberton School" > /var/www/holberton/holberton.html
@@ -14,7 +14,6 @@ echo "Holberton School" > /var/www/holberton/holberton.html
 echo "http {
 	server {
 		listen 80;
-		server_name amacharla.space;
 
 		root /var/www/holberton;
 		index holberton.html;
