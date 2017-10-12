@@ -13,8 +13,7 @@ echo "Holberton School" > /var/www/holberton/holberton.html
 
 echo "http {
 	server {
-		listen 80 default_server;
-		listen [::]:80 default_server ipv6only=on;
+		listen 80;
 
 		root /var/www/holberton;
 		index holberton.html;

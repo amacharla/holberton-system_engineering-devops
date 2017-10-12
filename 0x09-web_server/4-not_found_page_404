@@ -13,8 +13,7 @@ echo "Ceci n'est pas une page" > /var/www/holberton/custom_error.html
 
 echo "http {
 	server {
-		listen 80 default_server;
-		listen [::]:80 default_server ipv6only=on;
+		listen 80;
 
 		root /var/www/holberton;
 		index holberton.html;
