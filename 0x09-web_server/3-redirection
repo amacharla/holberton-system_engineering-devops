@@ -1,3 +1,24 @@
 #!/usr/bin/env bash
 
+mkdir -p /var/www/holberton
+echo "Holberton School" > /var/www/holberton/holberton.html
 
+echo "http {
+	server {
+		listen 80 default_server;
+		listen [::]:80 default_server ipv6only=on;
+
+		root /var/www/holberton;
+		index holberton.html;
+
+		rewrite ^/redirect_me$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+
+		location /{
+			try_files \$uri \$uri/ =404;
+		}
+	}
+}
+events {
+}" > /etc/nginx/nginx.conf
+
+nginx -s reload
