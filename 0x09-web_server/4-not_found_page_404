@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
+# install nginx
+# add custom dir and error file
+# rewrite config file
+# reload nginx service
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo service nginx start
 
 mkdir -p /var/www/holberton
 echo "Ceci n'est pas une page" > /var/www/holberton/custom_error.html

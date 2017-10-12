@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
+# install nginx
+# add dir and new index html file
+# rewrite config file
+# reload nginx
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo service nginx start
 
 mkdir -p /var/www/holberton
 echo "Holberton School" > /var/www/holberton/holberton.html
