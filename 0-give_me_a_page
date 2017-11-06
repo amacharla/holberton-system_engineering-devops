@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Debug with netstat -lp and found apache2 not running
+# restarted apache2 and tested with netstart -lp
+
+service apache2 restart
