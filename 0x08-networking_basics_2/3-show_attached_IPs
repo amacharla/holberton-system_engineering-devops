@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# can also use hostname -I to get ipaddress and not local
+# find out why `inet addr:((?:\d*.?){4})` is not working
+
+ifconfig | sed -En 's/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'
