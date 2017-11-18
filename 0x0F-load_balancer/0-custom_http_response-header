@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# Setup nginx with custom index and error
+
+apt-get update
+apt-get -y install nginx
+
+if [ -e '/etc/nginx/nginx.conf' ]; then
+	echo "
+	server {
+		listen 80 default_server;
+
+		root /var/www/holberton;
+		index index.html;
+
+		rewrite ^/redirect_me/?$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+
+		error_page 404 /custom_error.html;
+		# Make site accessible from http://localhost/
+		server_name localhost;
+
+		location / { add_header X-Served-By $HOSTNAME; }
+		location /custom_error.html { internal; }
+	}
+	" > /etc/nginx/sites-available/holberton
+
+	mkdir -p /var/www/holberton
+
+	echo "Holberton School" > /var/www/holberton/index.html
+	echo "Ceci n'est pas une page" > /var/www/holberton/custom_error.html
+
+	ln -fs /etc/nginx/sites-available/holberton /etc/nginx/sites-enabled/default
+
+	service nginx restart
+fi

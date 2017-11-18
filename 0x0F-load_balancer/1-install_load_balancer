@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# setup load balancer
+
+echo deb http://archive.ubuntu.com/ubuntu trusty-backports main universe | tee /etc/apt/sources.list.d/backports.list
+apt-get update
+apt-get -y install haproxy -t trusty-backports
+
+sed -i 's/ENABLED=./ENABLED=1/' /etc/default/haproxy
+
+echo "
+listen webstack
+	bind *:80
+	mode http
+	stats enable
+	stats uri /haproxy?stats
+	balance roundrobin
+	server 149-web-01 142.44.167.236:80 check
+	server 149-web-02 144.217.246.202:80 check
+" >> /etc/haproxy/haproxy.cfg
+
+service haproxy restart
