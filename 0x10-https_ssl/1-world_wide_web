@@ -3,7 +3,7 @@
 
 if [ "$1" ]; then
 	if [ "$2" ]; then
-		dig "$1.$2" +noall +answer | awk -v arg="$1" '{print "The subdomain " arg " is a " $4 " record and points to " $5}' | tail -1 
+		dig "$2.$1" +noall +answer | awk -v arg="$2" '{print "The subdomain " arg " is a " $4 " record and points to " $5}' | tail -1 
 	else
 		dig "www.$1" +noall +answer | awk '{print "The subdomain www is a " $4 " record and points to " $5}' | tail -1 
 		dig "lb-01.$1" +noall +answer | awk '{print "The subdomain lb-01 is a " $4 " record and points to " $5}' | tail -1 
