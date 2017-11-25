@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 #Display information about subdomains
 
-if [ "$1" ]; then
-	if [ "$2" ]; then
-		dig "$2.$1" +noall +answer | awk -v arg="$2" '{print "The subdomain " arg " is a " $4 " record and points to " $5}' | tail -1 
-	else
-		dig "www.$1" +noall +answer | awk '{print "The subdomain www is a " $4 " record and points to " $5}' | tail -1 
-		dig "lb-01.$1" +noall +answer | awk '{print "The subdomain lb-01 is a " $4 " record and points to " $5}' | tail -1 
-		dig "web-01.$1" +noall +answer | awk '{print "The subdomain web-01 is a " $4 " record and points to " $5}' | tail -1 
-		dig "web-02.$1" +noall +answer | awk '{print "The subdomain web-02 is a " $4 " record and points to " $5}' | tail -1 
+func1 () {
+	if [ "$1" ]; then
+		if [ "$2" ]; then
+			dig "$2.$1" +noall +answer | awk -v arg="$2" '{print "The subdomain " arg " is a " $4 " record and points to " $5}' | tail -1 
+		else
+			dig "www.$1" +noall +answer | awk '{print "The subdomain www is a " $4 " record and points to " $5}' | tail -1 
+			dig "lb-01.$1" +noall +answer | awk '{print "The subdomain lb-01 is a " $4 " record and points to " $5}' | tail -1 
+			dig "web-01.$1" +noall +answer | awk '{print "The subdomain web-01 is a " $4 " record and points to " $5}' | tail -1 
+			dig "web-02.$1" +noall +answer | awk '{print "The subdomain web-02 is a " $4 " record and points to " $5}' | tail -1 
+		fi
 	fi
-fi
+	return 0
+}
+
+func1 "$1" "$2"
