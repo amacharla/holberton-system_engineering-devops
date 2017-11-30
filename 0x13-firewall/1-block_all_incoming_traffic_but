@@ -1,0 +1,8 @@
+#block all incoming traffic
+#enable incoming for 22, 443, 80 for TCP
+
+sudo ufw allow 22/tcp
+sudo ufw allow 443/tcp
+sudo ufw allow 80/tcp
+sudo ufw --force enable
+sudo ufw default deny incoming
