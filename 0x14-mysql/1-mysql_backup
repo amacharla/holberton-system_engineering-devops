@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Connects to the MySQL database as root and scripts 1 arg is password
+# MySQL dumps all MySQL databases and names backup.sql
+# compresses backup.sql to a day-month-year.tar.gz archive
+
+BackupFile='backup.sql'
+
+if [[ $1 ]]; then
+	mysqldump -u root -p"$1" --all-databases --result-file="$BackupFile"
+fi
+
+if [ -f $BackupFile ]; then
+	tar -czf "$(date "+%d-%m-%Y").tar.gz" "$BackupFile"
+fi
