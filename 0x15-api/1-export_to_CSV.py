@@ -1,23 +1,24 @@
 #!/usr/bin/python3
 
 
-def print_for_0(user):
-    """ Special output for assignment 0 """
+def print_to_csv(user):
+    """ Output to CSC format """
 
-    name = user.get('name')
+    userid = user.get('id')
+    username = user.get('username')
     tasks = user.get('tasks')
-    done = [task.get('title') for task in tasks if
-            task.get('completed')]
 
-    print("Employee {} is done with tasks({}/{}):".format(name, len(done),
-                                                          len(tasks)))
-
-    for title in done:
-        print('\t{}'.format(title))
+    with open('{}.csv'.format(userid), 'w') as csvfile:
+        writer = csv.writer(csvfile, delimiter=',', quotechar='"',
+                            quoting=csv.QUOTE_ALL)
+        for task in tasks:
+            writer.writerow((userid, username, task.get('completed'),
+                             task.get('title')))
 
 
 if __name__ == "__main__":
     import requests
+    import csv
     from sys import argv
 
     if len(argv) != 2:
@@ -38,4 +39,4 @@ if __name__ == "__main__":
 
     user['tasks'] = tasks  # link list of tasks with respective user
 
-    print_for_0(user)
+    print_to_csv(user)
