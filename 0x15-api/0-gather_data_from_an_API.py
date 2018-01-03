@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-# prints info about employee and there done tasks
+# print employee and there completed task name
+
 
 def print_for_0(user):
     """ Special output for assignment 0 """
