@@ -1,24 +1,25 @@
 #!/usr/bin/python3
 
 
-def save_to_csv(user):
-    """ save to CSC format """
+def save_to_json(user):
+    """ Output to json format """
 
     userid = user.get('id')
     username = user.get('username')
     tasks = user.get('tasks')
 
-    with open('{}.csv'.format(userid), 'w') as csvfile:
-        writer = csv.writer(csvfile, delimiter=',', quotechar='"',
-                            quoting=csv.QUOTE_ALL)
-        for task in tasks:
-            writer.writerow((userid, username, task.get('completed'),
-                             task.get('title')))
+    for task in tasks:
+        task['task'] = task.pop('title')
+        task.pop('id')
+        task.pop('userId')
+        task['username'] = username
 
+    with open('{}.json'.format(userid), 'w') as jsonfile:
+        json.dump({userid: tasks}, jsonfile)
 
 if __name__ == "__main__":
     import requests
-    import csv
+    import json
     from sys import argv
 
     if len(argv) != 2:
@@ -39,4 +40,4 @@ if __name__ == "__main__":
 
     user['tasks'] = tasks  # link list of tasks with respective user
 
-    save_to_csv(user)
+    save_to_json(user)
