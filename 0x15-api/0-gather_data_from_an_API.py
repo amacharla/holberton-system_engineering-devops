@@ -14,7 +14,7 @@ def print_for_0(user):
                                                           len(tasks)))
 
     for title in done:
-        print('\t{}'.format(title))
+        print('\t {}'.format(title))
 
 
 if __name__ == "__main__":
