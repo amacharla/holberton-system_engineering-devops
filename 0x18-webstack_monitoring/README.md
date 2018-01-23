@@ -6,7 +6,7 @@
       <span class="alert alert-warning mandatory-optional">
         mandatory
       </span>
-</h4><p>Let’s monitor our Nginx server traffic (access log and error log), by installing <a href="/rltoken/iZXLFtq7EfU2-iObKg2xEg" target="_blank" title="Sumlogic">Sumlogic</a> on <code>web-01</code> (feel free to do it on other servers a well). Create an account and follow the setup wizard flow.</p><p>Requirements:</p><ul>
+</h4><p>Let’s monitor our Nginx server traffic (access log and error log), by installing <a href="/rltoken/iZXLFtq7EfU2-iObKg2xEg" target="_blank" title="Sumlogic">Sumlogic</a> on <code>web-01</code> (feel free to do it on other servers a well). Create an account and follow the setup wizard flow.
 
 <h4 class="task">
     1. Monitor your server
