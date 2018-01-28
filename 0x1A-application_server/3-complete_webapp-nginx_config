@@ -1,0 +1,26 @@
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server ipv6only=on;
+
+        add_header X-Served-By 149-web-01;
+
+        server_name localhost;
+        server_name web-01.amacharla.space;
+
+        root /home/ubuntu/AirBnb_clone_v4/web_dynamic;
+
+        error_page 404 /var/www/holberton/custom_error.html;
+
+        location /static/* { alias /home/ubuntu/AirBnb_clone_v4/web_dynamic/static; }
+
+        location / {
+                rewrite ^/$ /2-hbnb/;
+                include proxy_params;
+                proxy_pass http://unix:/tmp/hbnb_app.sock;
+        }
+
+        location /api/ {
+                include proxy_params;
+                proxy_pass http://unix:/tmp/hbnb_api.sock;
+        }
+}
