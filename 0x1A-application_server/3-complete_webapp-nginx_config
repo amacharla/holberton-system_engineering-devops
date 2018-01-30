@@ -22,7 +22,7 @@ server {
 
 	# pass requests to hbnb_app server via socket
         location / {
-                rewrite ^/$ /2-hbnb/;
+                rewrite ^/$ /2-hbnb;
                 include proxy_params;
                 proxy_pass http://unix:/tmp/hbnb_app.sock;
         }
