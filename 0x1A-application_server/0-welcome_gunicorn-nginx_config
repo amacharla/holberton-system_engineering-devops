@@ -15,8 +15,7 @@ server {
 
 	# forward request to application server. Pay attention to `/` after sock:
         location /airbnb-onepage/ {
-                include proxy_params;
-                proxy_pass http://unix:/tmp/hbnb_app.sock:/;
+                proxy_pass http://localhost:8000/;
         }
 
 }
