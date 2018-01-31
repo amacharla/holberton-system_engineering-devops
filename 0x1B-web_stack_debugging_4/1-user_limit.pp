@@ -1,13 +1,13 @@
-# Modify OS configuration 
-# saw the limts at /etc/procs/<PID of NGINX root>/limits
+# Modify OS configuration
+# Removing soft and hard open files limit
 
-exec { 'Increase Ulimit for openfile':
-  onlyif  => 'test -f /etc/default/nginx',
-  command => 'sed "s/ULIMIT=\"-n 15/ULIMIT=\"-n 8000/" /etc/security/limits.conf', 
+exec { 'Remove Holberton limits from file':
+  onlyif  => 'test -f /etc/security/limits.conf',
+  command => 'sed -i -r "s/holberton .+//" /etc/security/limits.conf',
   path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
 }
 
-exec { 'Restart Nginx':
-  command => 'service nginx restart',
+exec { 'Commit changes':
+  command => 'sysctl -p',
   path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
 }
