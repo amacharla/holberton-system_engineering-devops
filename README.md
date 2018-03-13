@@ -52,7 +52,7 @@ This repository contains projects on:
 ## Installation
 In your terminal, git clone the directory with the following command:
 ```
-git clone https://github.com/srinitude/[Github project directory]
+git clone https://github.com/amacharla/[Github project directory]
 ```
 
 ## Usage
